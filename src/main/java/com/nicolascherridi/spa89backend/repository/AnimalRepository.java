@@ -12,5 +12,4 @@ public interface AnimalRepository extends CrudRepository <Animal, Long>{
     Animal findById(@Param("id") short id);
     Animal findByName(@Param("name") String name);
     void delete(Animal animal);
-
 }

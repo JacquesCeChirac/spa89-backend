@@ -34,18 +34,18 @@ public class AnimalController {
         return animalRepository.findBySpecies(species);
     }
 
-    @RequestMapping(path = "/animalZ/{name}", method = RequestMethod.GET)
-    public @ResponseBody
-    Animal findAnimalByName(@PathVariable("name") String name) throws IOException {
-        return animalRepository.findByName(name);
-    }
-
     @RequestMapping(path = "/animal/{id}", method = RequestMethod.DELETE)
     public @ResponseBody
     String deleteAnimal(@PathVariable("id") short id) throws IOException {
         Animal animal = animalRepository.findById(id);
         animalRepository.delete(animal);
         return "Animal supprimé";
+    }
+
+    @RequestMapping(path = "/animal/{name}", method = RequestMethod.GET)
+    public @ResponseBody
+    Animal findAnimalByName(@PathVariable("name") String name) throws IOException {
+        return animalRepository.findByName(name);
     }
 
 }
